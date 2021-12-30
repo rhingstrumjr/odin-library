@@ -16,7 +16,15 @@ const book = (title, author, pages, haveRead) => {
 }
 
 function addBookToLibrary () {
-    return myLibrary.push(book(document.getElementById('title').value, document.getElementById('author').value, document.getElementById('pages').value, document.getElementById('read').checked))
+    let title = document.getElementById('title');
+    let author = document.getElementById('author');
+    let pages = document.getElementById('pages');
+    let haveRead = document.getElementById('read');
+    myLibrary.push(book(title.value, author.value, pages.value, haveRead.checked))
+    title.value = "";
+    author.value = "";
+    pages.value = "";
+    haveRead.checked = false;
 }
 
 // const harryPotter = book('Chamber of Secrets', 'JK Rowling', 350, true);
