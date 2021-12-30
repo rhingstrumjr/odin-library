@@ -1,9 +1,12 @@
-function Book(title, author, pages, haveRead) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.haveRead = haveRead;
-    this.info = function () {
-        return `${this.title} by ${this.author}, ${this.pages} pages, ${this.haveRead ? 'have read' : 'not read yet'}`
-    }
+const book = (title, author, pages, haveRead) => {
+    const obj = {
+        info : () => { 
+            return `${title} by ${author}, ${pages} pages, ${obj.haveRead ? 'have read' : 'not read yet'}`
+            },
+        haveRead
+    };
+    return obj
 }
+
+
+const harryPotter = book('Chamber of Secrets', 'JK Rowling', 350, true);
