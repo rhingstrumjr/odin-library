@@ -26,10 +26,42 @@ function addBookToLibrary () {
         author.value = "";
         pages.value = "";
         haveRead.checked = false;
+        displayBooks();
     } else {
         alert("Missing title, author, and/or pages.")
     }
-    
+}
+
+function displayBooks () {
+    const shelf = document.getElementById("shelf");
+    myLibrary.forEach( (book, i) => {
+        const card = document.createElement('div');
+        card.setAttribute("data-loc", `${i}`)
+        const titleHeading = document.createElement('h4');
+        const title = document.createTextNode(book.title);
+        titleHeading.appendChild(title);
+        const authorHeading = document.createElement('h5');
+        const author = document.createTextNode(`Author: ${book.author}`);
+        authorHeading.appendChild(author);
+        const pagesPara = document.createElement('p');
+        const pages = document.createTextNode(`Pages: ${book.pages}`)
+        pagesPara.appendChild(pages);
+        const labelForReadButton = document.createElement('label');
+        const readButton = document.createElement('button');
+        const readStatus = document.createTextNode(book.haveRead ? "Yes" : "No");
+        readButton.appendChild(readStatus);
+        labelForReadButton.appendChild(readButton);
+        const removeButton = document.createElement('button');
+        removeButton.setAttribute("data-loc", `${i}`);
+        const removeWords = document.createTextNode("Remove");
+        removeButton.appendChild(removeWords);
+        const thingsToAdd = [titleHeading, authorHeading, pagesPara, labelForReadButton, removeButton];
+        thingsToAdd.forEach(thing => {
+            thing.setAttribute("data-loc", `${i}`)
+            card.appendChild(thing)
+        })
+        shelf.appendChild(card)
+    })
 }
 
 // const harryPotter = book('Chamber of Secrets', 'JK Rowling', 350, true);
