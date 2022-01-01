@@ -48,11 +48,11 @@ function displayBooks () {
         pagesPara.appendChild(pages);
         const labelForReadButton = document.createElement('label');
         const readButton = document.createElement('button');
+        readButton.setAttribute("data-loc", `${i}`);
         const readStatus = document.createTextNode(book.haveRead ? "Yes" : "No");
         readButton.appendChild(readStatus);
         labelForReadButton.appendChild(readButton);
         const removeButton = document.createElement('button');
-        removeButton.setAttribute("data-loc", `${i}`);
         const removeWords = document.createTextNode("Remove");
         removeButton.appendChild(removeWords);
         const thingsToAdd = [titleHeading, authorHeading, pagesPara, labelForReadButton, removeButton];
