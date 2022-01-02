@@ -39,11 +39,11 @@ function displayBooks () {
         card.setAttribute("data-loc", `${i}`);
         card.classList.add("card");
         card.innerHTML = `
-        <h4>${book.title}</h5>
-        <h5>${book.author}</h5>
-        <p>${book.pages} pages</p>
-        <label>Read? <button onclick="changeReadStatus(${i})">${book.haveRead ? "Yes" : "No"}</button></label>
-        <button onclick="removeBook(${i})">Remove from library</button>`
+            <h4>${book.title}</h5>
+            <h5>${book.author}</h5>
+            <p>${book.pages} pages</p>
+            <label>Read? <button onclick="changeReadStatus(${i})">${book.haveRead ? "Yes" : "No"}</button></label>
+            <button onclick="removeBook(${i})">Remove from library</button>`;
         shelf.appendChild(card)
     })
 }
