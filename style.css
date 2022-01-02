@@ -5,3 +5,7 @@ html {
 * {
     box-sizing: inherit;
 }
+
+menu {
+    display: none;
+}
