@@ -36,30 +36,14 @@ function displayBooks () {
     const shelf = document.getElementById("shelf");
     myLibrary.forEach( (book, i) => {
         const card = document.createElement('div');
-        card.setAttribute("data-loc", `${i}`)
-        const titleHeading = document.createElement('h4');
-        const title = document.createTextNode(book.title);
-        titleHeading.appendChild(title);
-        const authorHeading = document.createElement('h5');
-        const author = document.createTextNode(`Author: ${book.author}`);
-        authorHeading.appendChild(author);
-        const pagesPara = document.createElement('p');
-        const pages = document.createTextNode(`Pages: ${book.pages}`)
-        pagesPara.appendChild(pages);
-        const labelForReadButton = document.createElement('label');
-        const readButton = document.createElement('button');
-        readButton.setAttribute("data-loc", `${i}`);
-        const readStatus = document.createTextNode(book.haveRead ? "Yes" : "No");
-        readButton.appendChild(readStatus);
-        labelForReadButton.appendChild(readButton);
-        const removeButton = document.createElement('button');
-        const removeWords = document.createTextNode("Remove");
-        removeButton.appendChild(removeWords);
-        const thingsToAdd = [titleHeading, authorHeading, pagesPara, labelForReadButton, removeButton];
-        thingsToAdd.forEach(thing => {
-            thing.setAttribute("data-loc", `${i}`)
-            card.appendChild(thing)
-        })
+        card.setAttribute("data-loc", `${i}`);
+        card.classList.add("card");
+        card.innerHTML = `
+        <h4>${book.title}</h5>
+        <h5>${book.author}</h5>
+        <p>${book.pages} pages</p>
+        <label>Read? <button onclick="changeReadStatus(${i})">${book.haveRead ? "Yes" : "No"}</button></label>
+        <button onclick="removeBook(${i})">Remove from library</button>`
         shelf.appendChild(card)
     })
 }
