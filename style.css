@@ -1,11 +1,67 @@
 html {
     box-sizing: border-box;
+    padding: 1em;
 }
 
 * {
     box-sizing: inherit;
+    font-size: 21px;
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.75em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+h4 {
+    font-size: 1.3em;
+}
+
+h5 {
+    font-size: 1.15em;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: .25em 0;
 }
 
 menu {
     display: none;
+    width: 400px;
+}
+
+label {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    margin-bottom: .5em;
+}
+
+button {
+    padding: .25em;
+}
+
+main {
+    margin-top: 1.5em;
+}
+
+#shelf {
+    display: flex;
+    flex-flow: wrap;
+    gap: 1em;
+}
+
+.card {
+    width: 275px;
+    border: solid black 1px;
+    padding: 1em;
 }
